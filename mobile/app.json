@@ -1,0 +1,90 @@
+{
+  "expo": {
+    "name": "توصيل",
+    "slug": "tawsil",
+    "scheme": "tawsil",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "mr.tawsil.app",
+      "infoPlist": {
+        "UIBackgroundModes": [
+          "audio",
+          "voip",
+          "remote-notification"
+        ]
+      }
+    },
+    "android": {
+      "package": "mr.tawsil.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#0B5D4B",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "permissions": [
+        "android.permission.RECORD_AUDIO",
+        "android.permission.MODIFY_AUDIO_SETTINGS",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.CAMERA",
+        "android.permission.BLUETOOTH_CONNECT"
+      ],
+      "config": {
+        "googleMaps": {
+          "apiKey": "ضع_مفتاح_Google_Maps_هنا_عند_بناء_التطبيق"
+        }
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "supportsRTL": true,
+      "forcesRTL": true
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-audio",
+        {
+          "microphonePermission": "يحتاج التطبيق الميكروفون لإرسال الرسائل الصوتية وإجراء المكالمات مع الموصّل أو الزبون."
+        }
+      ],
+      "expo-secure-store",
+      [
+        "expo-localization",
+        {
+          "supportsRTL": true,
+          "forcesRTL": true
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "يحتاج التطبيق موقعك لتحديد عنوان الاستلام ولتتبع التوصيل."
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "cameraPermission": "يحتاج التطبيق الكاميرا لتصوير الشحنة عند الاستلام ورفع وثائق الموصّل.",
+          "photosPermission": "يحتاج التطبيق الصور لرفع وثائق الموصّل."
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "color": "#0B5D4B"
+        }
+      ],
+      "expo-font",
+      "expo-asset"
+    ]
+  }
+}

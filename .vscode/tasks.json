@@ -1,0 +1,34 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "1. تشغيل الخادم",
+      "type": "shell",
+      "command": "npm start",
+      "options": { "cwd": "${workspaceFolder}/server" },
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "2. تشغيل لوحة الإدارة",
+      "type": "shell",
+      "command": "npm run dev",
+      "options": { "cwd": "${workspaceFolder}/admin" },
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "3. تشغيل تطبيق الهاتف",
+      "type": "shell",
+      "command": "npx expo start",
+      "options": { "cwd": "${workspaceFolder}/mobile" },
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "تشغيل الكل",
+      "dependsOn": ["1. تشغيل الخادم", "2. تشغيل لوحة الإدارة", "3. تشغيل تطبيق الهاتف"],
+      "problemMatcher": []
+    }
+  ]
+}

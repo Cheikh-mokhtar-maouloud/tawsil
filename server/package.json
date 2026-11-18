@@ -1,0 +1,31 @@
+{
+  "name": "tawsil-server",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "خادم تطبيق التوصيل: الطلبات، المحادثات الصوتية، المكالمات المسجلة، الشكاوى، والإدارة",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "seed": "node scripts/seed.js",
+    "test":"node test/flow.test.js && node test/flow.test.js --calls"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "agora-token": "^2.0.6",
+    "bcryptjs": "^3.0.3",
+    "better-sqlite3": "^13.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.6",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "multer": "^2.4.0",
+    "socket.io": "^4.8.4"
+  },
+  "devDependencies": {
+    "socket.io-client": "^4.8.4"
+  }
+}
