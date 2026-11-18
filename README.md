@@ -1,92 +1,92 @@
-# تطبيق توصيل — موريتانيا
+# Tawsil — Delivery App for Mauritania
 
-نظام توصيل رسائل وطرود كامل من ثلاثة أجزاء:
+A complete letter and parcel delivery system made up of three parts:
 
-| المجلد | ما هو | التقنية |
+| Folder | What it is | Technology |
 | --- | --- | --- |
-| `server/` | الخادم وقاعدة البيانات | Node.js + Express + Socket.io + SQLite |
-| `admin/` | لوحة تحكم الإدارة (موقع ويب) | Next.js |
-| `mobile/` | تطبيق الهاتف للزبون والموصّل (تطبيق واحد، يختار المستخدم نوع حسابه عند التسجيل) | React Native (Expo) |
+| `server/` | Backend and database | Node.js + Express + Socket.io + SQLite |
+| `admin/` | Admin dashboard (website) | Next.js |
+| `mobile/` | Phone app for customers and couriers (one app, users choose their account type at sign-up) | React Native (Expo) |
 
-## الميزات
+## Features
 
-**الزبون:** الدخول برقم الهاتف ورمز SMS · تحديد الاستلام والتسليم على الخريطة · وصف صوتي للمكان · نوع الشحنة · السعر قبل الطلب · الدفع نقداً · التتبع المباشر · رمز تسليم يصل للمستلم برسالة · محادثة نصية وصوتية · مكالمة مسجلة · إلغاء · تقييم · شكوى.
+**Customer:** sign-in with phone number and SMS code · pickup and drop-off selection on the map · voice description of the location · shipment type · price shown before ordering · cash payment · live tracking · delivery code sent to the recipient by message · text and voice chat · recorded calls · cancellation · rating · complaints.
 
-**الموصّل:** رفع الوثائق وانتظار الموافقة · زر متاح/غير متاح · عرض الطلب لأقرب موصّل مع مهلة 30 ثانية · قبول أو رفض · الاستماع لوصف الزبون · فتح الطريق في خرائط Google · تصوير الشحنة عند الاستلام · تأكيد التسليم برمز المستلم · الأرباح والمبلغ المستحق للشركة.
+**Courier:** document upload and approval flow · available/unavailable toggle · orders offered to the nearest courier with a 30-second timeout · accept or decline · listen to the customer's voice description · open the route in Google Maps · photograph the shipment at pickup · confirm delivery with the recipient's code · earnings and amount owed to the company.
 
-**الإدارة:** مؤشرات اليوم ورسم بياني · خريطة مباشرة · الطلبات وتفاصيلها · **ملف الشكوى**: كل الرسائل والتسجيلات والصور ومسار الموصّل مرتبة زمنياً، مع قرار وملاحظة تصل للطرفين · قبول الموصّلين وإيقافهم · الزبائن · تسوية النقد · الأسعار والعمولة · الموظفون بثلاثة أدوار (مدير، دعم، محاسب) · **سجل الاستماع**: من فتح أي تسجيل ومتى.
+**Admin:** daily indicators and chart · live map · orders and their details · **complaint file**: all messages, recordings, photos and the courier's route in chronological order, with a decision and a note sent to both parties · courier approval and suspension · customers · cash settlement · pricing and commission · staff with three roles (admin, support, accountant) · **listening log**: who opened each recording and when.
 
-**الخصوصية:** أرقام الهواتف مخفية بين الزبون والموصّل · الملفات الصوتية لا تُفتح إلا بروابط مؤقتة (10 دقائق) · المحاسب لا يستطيع الاستماع · حذف تلقائي للتسجيلات بعد 60 يوماً من إغلاق الطلب (أو من قرار الشكوى)، ولا يُحذف شيء ما دامت الشكوى مفتوحة.
+**Privacy:** phone numbers are hidden between customer and courier · audio files open only through temporary links (10 minutes) · accountants cannot listen to recordings · recordings are deleted automatically 60 days after the order closes (or after the complaint decision), and nothing is deleted while a complaint is open.
 
 ---
 
-## صور من الواجهة
+## Screenshots
 
-> كل الأسماء والأرقام في الصور بيانات تجريبية من `npm run seed`. صور تطبيق الهاتف مأخوذة من نسخة ويب بحجم شاشة هاتف، والخريطة فيها OpenStreetMap بدلاً من خرائط الهاتف، لذلك قد يختلف المظهر قليلاً على الجهاز.
+> The interface is in Arabic. All names and numbers shown are demo data from `npm run seed`. The mobile screenshots were taken from a web build at phone size, using OpenStreetMap instead of the native maps, so the app may look slightly different on a device.
 
-### لوحة الإدارة
+### Admin dashboard
 
-| الرئيسية | الخريطة المباشرة |
+| Home | Live map |
 | --- | --- |
-| ![الرئيسية](docs/screenshots/admin-dashboard.png) | ![الخريطة المباشرة](docs/screenshots/admin-live-map.png) |
+| ![Home](docs/screenshots/admin-dashboard.png) | ![Live map](docs/screenshots/admin-live-map.png) |
 
-| الطلبات | تفاصيل الطلب |
+| Orders | Order details |
 | --- | --- |
-| ![الطلبات](docs/screenshots/admin-orders.png) | ![تفاصيل الطلب](docs/screenshots/admin-order-details.png) |
+| ![Orders](docs/screenshots/admin-orders.png) | ![Order details](docs/screenshots/admin-order-details.png) |
 
-| ملف الشكوى | الموصّلون |
+| Complaint file | Couriers |
 | --- | --- |
-| ![ملف الشكوى](docs/screenshots/admin-complaint-file.png) | ![الموصّلون](docs/screenshots/admin-couriers.png) |
+| ![Complaint file](docs/screenshots/admin-complaint-file.png) | ![Couriers](docs/screenshots/admin-couriers.png) |
 
-| النقد والتسويات | الأسعار |
+| Cash and settlements | Pricing |
 | --- | --- |
-| ![النقد والتسويات](docs/screenshots/admin-finance.png) | ![الأسعار](docs/screenshots/admin-pricing.png) |
+| ![Cash and settlements](docs/screenshots/admin-finance.png) | ![Pricing](docs/screenshots/admin-pricing.png) |
 
-| الموظفون | تسجيل الدخول |
+| Staff | Sign-in |
 | --- | --- |
-| ![الموظفون](docs/screenshots/admin-staff.png) | ![تسجيل الدخول](docs/screenshots/admin-login.png) |
+| ![Staff](docs/screenshots/admin-staff.png) | ![Sign-in](docs/screenshots/admin-login.png) |
 
-### تطبيق الزبون
+### Customer app
 
-| الدخول | طلب جديد | التتبع المباشر | المحادثة | طلباتي |
+| Sign-in | New order | Live tracking | Chat | My orders |
 | --- | --- | --- | --- | --- |
-| <img src="docs/screenshots/mobile-login.png" width="170" alt="الدخول"> | <img src="docs/screenshots/mobile-new-order.png" width="170" alt="طلب جديد"> | <img src="docs/screenshots/mobile-tracking.png" width="170" alt="التتبع المباشر"> | <img src="docs/screenshots/mobile-chat.png" width="170" alt="المحادثة"> | <img src="docs/screenshots/mobile-orders.png" width="170" alt="طلباتي"> |
+| <img src="docs/screenshots/mobile-login.png" width="170" alt="Sign-in"> | <img src="docs/screenshots/mobile-new-order.png" width="170" alt="New order"> | <img src="docs/screenshots/mobile-tracking.png" width="170" alt="Live tracking"> | <img src="docs/screenshots/mobile-chat.png" width="170" alt="Chat"> | <img src="docs/screenshots/mobile-orders.png" width="170" alt="My orders"> |
 
-### تطبيق الموصّل
+### Courier app
 
-| العمل | توصيلاتي | الأرباح |
+| Work | My deliveries | Earnings |
 | --- | --- | --- |
-| <img src="docs/screenshots/mobile-courier-home.png" width="170" alt="العمل"> | <img src="docs/screenshots/mobile-courier-history.png" width="170" alt="توصيلاتي"> | <img src="docs/screenshots/mobile-courier-earnings.png" width="170" alt="الأرباح"> |
+| <img src="docs/screenshots/mobile-courier-home.png" width="170" alt="Work"> | <img src="docs/screenshots/mobile-courier-history.png" width="170" alt="My deliveries"> | <img src="docs/screenshots/mobile-courier-earnings.png" width="170" alt="Earnings"> |
 
 ---
 
-## التشغيل في VS Code
+## Running in VS Code
 
-### 1. ما تحتاجه مرة واحدة
+### 1. One-time requirements
 
-- **Node.js 20 أو أحدث** من [nodejs.org](https://nodejs.org) (اختر LTS).
+- **Node.js 20 or later** from [nodejs.org](https://nodejs.org) (choose LTS).
 - **VS Code**.
-- على هاتفك: تطبيق **Expo Go** من متجر Play أو App Store.
-- الكمبيوتر والهاتف على **نفس شبكة الواي فاي**.
+- On your phone: the **Expo Go** app from Google Play or the App Store.
+- Your computer and phone on the **same Wi-Fi network**.
 
-افتح المجلد `tawsil` كاملاً في VS Code (File › Open Folder). ستحتاج ثلاث نوافذ طرفية (Terminal › New Terminal، ثم زر `+` لفتح نافذة أخرى).
+Open the whole `tawsil` folder in VS Code (File › Open Folder). You will need three terminals (Terminal › New Terminal, then the `+` button to open another one).
 
-### 2. الخادم (النافذة الأولى)
+### 2. Server (first terminal)
 
 ```bash
 cd server
 npm install
-copy .env.example .env      # في Mac/Linux: cp .env.example .env
-npm run seed                # اختياري: بيانات تجريبية (زبائن، موصّلون، طلبات، شكوى)
+copy .env.example .env      # On Mac/Linux: cp .env.example .env
+npm run seed                # Optional: demo data (customers, couriers, orders, a complaint)
 npm start
 ```
 
-يجب أن ترى: `يعمل على http://localhost:4000`.
-رمز الدخول (OTP) يظهر في هذه النافذة أثناء التجربة، ويظهر أيضاً داخل التطبيق.
+You should see `يعمل على http://localhost:4000` ("running on http://localhost:4000").
+During testing, the sign-in code (OTP) appears in this terminal and inside the app.
 
-للتأكد أن كل شيء سليم: `npm test` (يشغّل دورة طلب كاملة تلقائياً، 16 اختباراً).
+To check that everything works: `npm test` (runs a complete order cycle automatically, 16 tests).
 
-### 3. لوحة الإدارة (النافذة الثانية)
+### 3. Admin dashboard (second terminal)
 
 ```bash
 cd admin
@@ -95,12 +95,12 @@ copy .env.example .env.local
 npm run dev
 ```
 
-افتح [http://localhost:3000](http://localhost:3000) وادخل بـ `admin` / `admin123` (غيّرها في `server/.env` قبل النشر).
+Open [http://localhost:3000](http://localhost:3000) and sign in with `admin` / `admin123` (change these in `server/.env` before deploying).
 
-### 4. تطبيق الهاتف (النافذة الثالثة)
+### 4. Mobile app (third terminal)
 
-1. اعرف عنوان IP لجهازك: في Windows افتح cmd واكتب `ipconfig`، وابحث عن **IPv4 Address** (مثل `192.168.1.15`).
-2. ثم:
+1. Find your computer's IP address: on Windows open cmd, run `ipconfig`, and look for **IPv4 Address** (for example `192.168.1.15`).
+2. Then run:
 
 ```bash
 cd mobile
@@ -108,37 +108,37 @@ npm install
 copy .env.example .env
 ```
 
-3. افتح `mobile/.env` وضع عنوانك: `EXPO_PUBLIC_API_URL=http://192.168.1.15:4000`
-4. شغّل:
+3. Open `mobile/.env` and set your address: `EXPO_PUBLIC_API_URL=http://192.168.1.15:4000`
+4. Start the app:
 
 ```bash
 npx expo start
 ```
 
-5. امسح رمز QR بتطبيق Expo Go (أندرويد) أو بالكاميرا (آيفون).
+5. Scan the QR code with Expo Go (Android) or the Camera app (iPhone).
 
-**للتجربة كاملة** استعمل هاتفين: سجّل في الأول كزبون وفي الثاني كموصّل، ثم من لوحة الإدارة › الموصّلون › اقبل الموصّل. أو استعمل البيانات التجريبية: زبون `22334455` وموصّل `36112233`.
+**To try the full flow**, use two phones: register as a customer on the first and as a courier on the second, then approve the courier from Admin dashboard › Couriers. Or use the demo data: customer `22334455` and courier `36112233`.
 
-> إذا لم يتصل الهاتف بالخادم: تأكد أن جدار الحماية في Windows يسمح لـ Node.js على الشبكات الخاصة، وأن الهاتف على نفس الواي فاي.
+> If the phone cannot reach the server, make sure Windows Firewall allows Node.js on private networks and that the phone is on the same Wi-Fi.
 
 ---
 
-## ما يعمل في Expo Go وما يحتاج نسخة مبنية
+## What works in Expo Go and what needs a build
 
-| الميزة | Expo Go | نسخة مبنية (development build أو APK) |
+| Feature | Expo Go | Built app (development build or APK) |
 | --- | --- | --- |
-| الطلبات، الخريطة، التتبع، المحادثة، الرسائل الصوتية، الصور، الشكاوى | نعم | نعم |
-| **المكالمات المسجلة (ميزة 2)** | لا: يظهر للمستخدم اقتراح إرسال رسالة صوتية | نعم، بعد إضافة مفاتيح Agora |
-| الإشعارات والتطبيق مغلق | لا (أندرويد) | نعم، بعد ربط المشروع بـ EAS |
-| الواجهة من اليمين لليسار | تُفرض عند أول تشغيل (يعيد التطبيق تحميل نفسه مرة) | مفروضة من الإعدادات |
+| Orders, map, tracking, chat, voice messages, photos, complaints | Yes | Yes |
+| **Recorded calls (feature 2)** | No: the user is offered a voice message instead | Yes, after adding Agora keys |
+| Notifications while the app is closed | No (Android) | Yes, after linking the project to EAS |
+| Right-to-left interface | Forced on first launch (the app reloads itself once) | Forced by configuration |
 
-### تفعيل المكالمات المسجلة
+### Enabling recorded calls
 
-1. أنشئ حساباً في [Agora](https://console.agora.io) ومشروعاً بشهادة (App Certificate).
-2. فعّل **Cloud Recording** في المشروع، وأنشئ مفاتيح REST (Customer ID / Secret).
-3. أنشئ حاوية تخزين متوافقة مع S3 لحفظ التسجيلات، وضع فيها قاعدة حذف تلقائي بعد 60 يوماً.
-4. املأ قسم Agora في `server/.env` وأعد تشغيل الخادم.
-5. ابنِ نسخة تطوير من التطبيق:
+1. Create an [Agora](https://console.agora.io) account and a project with an App Certificate.
+2. Enable **Cloud Recording** for the project and create REST keys (Customer ID / Secret).
+3. Create an S3-compatible storage bucket for the recordings, with an automatic deletion rule after 60 days.
+4. Fill in the Agora section of `server/.env` and restart the server.
+5. Build a development version of the app:
 
 ```bash
 cd mobile
@@ -147,39 +147,39 @@ npx eas-cli@latest init
 npx eas-cli@latest build --profile development --platform android
 ```
 
-ثبّت ملف APK الناتج على الهاتف، ثم شغّل `npx expo start --dev-client`.
+Install the resulting APK on the phone, then run `npx expo start --dev-client`.
 
-> راجع أسعار Agora الحالية قبل الإطلاق: تُحسب المكالمات والتسجيل بالدقيقة.
+> Check Agora's current pricing before launch: calls and recording are billed per minute.
 
-### قبل النشر الفعلي
+### Before going live
 
-- [ ] غيّر `JWT_SECRET` وكلمة مرور المدير في `server/.env`، واجعل `NODE_ENV=production`.
-- [ ] اربط مزود رسائل SMS يعمل في موريتانيا في `server/src/sms.js` (في وضع الإنتاج لن يعمل الدخول بدونه).
-- [ ] ضع مفتاح Google Maps في `mobile/app.json` (`android.config.googleMaps.apiKey`) — مطلوب للخرائط في النسخة المبنية على أندرويد.
-- [ ] انشر الخادم على خادم دائم (VPS) مع HTTPS، واضبط `EXPO_PUBLIC_API_URL` و `NEXT_PUBLIC_API_URL` على عنوانه.
-- [ ] خذ نسخة احتياطية دورية من `server/data/tawsil.db` ومجلد `server/uploads`.
-- [ ] راجع شروط الاستخدام وسياسة الخصوصية مع محامٍ محلي (قانون حماية المعطيات الشخصية رقم 2017-020)، خاصة تسجيل المحادثات.
-- [ ] تتبع موقع الموصّل يعمل والتطبيق مفتوح؛ للتتبع في الخلفية أضف `expo-task-manager` وصلاحية الموقع في الخلفية.
+- [ ] Change `JWT_SECRET` and the admin password in `server/.env`, and set `NODE_ENV=production`.
+- [ ] Connect an SMS provider that works in Mauritania in `server/src/sms.js` (sign-in will not work in production without it).
+- [ ] Add a Google Maps key to `mobile/app.json` (`android.config.googleMaps.apiKey`). It is required for maps in the Android build.
+- [ ] Deploy the server on a permanent host (VPS) with HTTPS, and point `EXPO_PUBLIC_API_URL` and `NEXT_PUBLIC_API_URL` to its address.
+- [ ] Back up `server/data/tawsil.db` and the `server/uploads` folder regularly.
+- [ ] Review the terms of use and privacy policy with a local lawyer (Personal Data Protection Law No. 2017-020), especially regarding conversation recording.
+- [ ] Courier location tracking works while the app is open. For background tracking, add `expo-task-manager` and the background location permission.
 
 ---
 
-## تعديل الأسعار
+## Changing prices
 
-من لوحة الإدارة › الأسعار. المعادلة:
-السعر = (أجرة البداية + سعر الكيلومتر × المسافة) × معامل نوع الشحنة، مقرّباً لأقرب 5 أوقيات، ولا يقل عن الحد الأدنى. المسافة = الخط المستقيم × 1.3. القيم الافتراضية أمثلة فقط، ضع أسعارك.
+Go to Admin dashboard › Pricing. The formula is:
+Price = (base fare + price per kilometer × distance) × shipment type multiplier, rounded to the nearest 5 ouguiya, and never below the minimum. Distance = straight-line distance × 1.3. The default values are only examples, so set your own.
 
-## بنية الكود
+## Code structure
 
 ```
 server/src/
-  index.js            تشغيل الخادم و Socket.io
-  db.js               جداول قاعدة البيانات والإعدادات الافتراضية
-  orders-service.js   توزيع الطلبات على أقرب موصّل
+  index.js            Server startup and Socket.io
+  db.js               Database tables and default settings
+  orders-service.js   Order dispatch to the nearest courier
   routes/             auth, orders, messages, calls, courier, admin
-  agora.js            رموز المكالمات والتسجيل السحابي
-  retention.js        الحذف التلقائي بعد مدة الحفظ
-  sms.js / push.js    الرسائل النصية والإشعارات
-admin/src/app/(dash)/  صفحات لوحة الإدارة
-mobile/src/app/        شاشات التطبيق (customer/ للزبون، courier/ للموصّل)
-mobile/src/components/ المكونات: الصوت، الخريطة، المكالمات
+  agora.js            Call tokens and cloud recording
+  retention.js        Automatic deletion after the retention period
+  sms.js / push.js    SMS messages and notifications
+admin/src/app/(dash)/  Admin dashboard pages
+mobile/src/app/        App screens (customer/ for customers, courier/ for couriers)
+mobile/src/components/ Components: audio, map, calls
 ```
